@@ -2,26 +2,52 @@ import { useMemo, useState } from "react";
 import "./app.css";
 import logo from "./assets/logo-transparent.png";
 
-
-
-const OWNER_PHONE = "+1-555-555-5555"; // TODO
-const OWNER_EMAIL = "hello@honeysucklehollow.com"; // TODO
+const OWNER_PHONE = "+1-555-555-5555"; // TODO: replace
+const OWNER_EMAIL = "hello@honeysucklehollow.com"; // TODO: replace
 
 const GALLERY_ITEMS = [
   // Weddings
-  { id: "w1", category: "Weddings", alt: "Wedding ceremony in the barn", src: "https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=1600&q=80" },
-  { id: "w2", category: "Weddings", alt: "Bride and groom outdoors", src: "https://images.unsplash.com/photo-1523438097201-512ae7d59b71?auto=format&fit=crop&w=1600&q=80" },
-  { id: "w3", category: "Weddings", alt: "Reception table setting", src: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80" },
+  {
+    id: "w1",
+    category: "Weddings",
+    alt: "Wedding ceremony in the barn",
+    src: "https://images.unsplash.com/photo-1520857014576-2c4f4c972b57?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: "w2",
+    category: "Weddings",
+    alt: "Bride and groom outdoors",
+    src: "https://images.unsplash.com/photo-1523438097201-512ae7d59b71?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: "w3",
+    category: "Weddings",
+    alt: "Reception table setting",
+    src: "https://images.unsplash.com/photo-1529636798458-92182e662485?auto=format&fit=crop&w=1600&q=80",
+  },
 
   // Venue + Land
-  { id: "v1", category: "Venue & Land", alt: "Rustic barn exterior", src: "https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee?auto=format&fit=crop&w=1600&q=80" },
-  { id: "v2", category: "Venue & Land", alt: "Country landscape at golden hour", src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80" },
-  { id: "v3", category: "Venue & Land", alt: "Pond and trees", src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80" },
+  {
+    id: "v1",
+    category: "Venue & Land",
+    alt: "Rustic barn exterior",
+    src: "https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: "v2",
+    category: "Venue & Land",
+    alt: "Country landscape at golden hour",
+    src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80",
+  },
+  {
+    id: "v3",
+    category: "Venue & Land",
+    alt: "Pond and trees",
+    src: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1600&q=80",
+  },
 ];
 
 export default function App() {
-  const year = new Date().getFullYear();
-
   return (
     <div className="page" id="top">
       <Header />
@@ -31,16 +57,7 @@ export default function App() {
         <Gallery items={GALLERY_ITEMS} />
         <Contact ownerPhone={OWNER_PHONE} ownerEmail={OWNER_EMAIL} />
       </main>
-      <footer className="footer">
-        <div className="container footerInner">
-          <p>© {year} Honeysuckle Hollow Wedding Venue</p>
-          <div className="footerLinks">
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Contact</a>
-            <a href="#top">Back to top</a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
@@ -50,8 +67,7 @@ function Header() {
     <header className="header">
       <div className="container headerInner">
         <a className="brand" href="#top" aria-label="Honeysuckle Hollow Home">
-          <img className="brandLogo" src={logo} alt="Honeysuckle Hollow logo" />
-          <span className="brandText">Honeysuckle Hollow</span>
+          <img className="brandLogo" src={logo} alt="Honeysuckle Hollow" />
         </a>
 
         <nav className="nav" aria-label="Primary navigation">
@@ -62,7 +78,6 @@ function Header() {
     </header>
   );
 }
-
 
 function Hero() {
   return (
@@ -77,13 +92,17 @@ function Hero() {
         <h1 className="heroTitle">A countryside setting where love grows wild.</h1>
 
         <p className="heroSubtitle">
-          Exchange vows beside the ponds, celebrate in the barn, and gather your favorite people
-          for a weekend to remember at Honeysuckle Hollow.
+          Exchange vows beside the ponds, celebrate in the barn, and gather your favorite
+          people for a weekend to remember at Honeysuckle Hollow.
         </p>
 
         <div className="heroCtas">
-          <a className="btn primary" href="#contact">Check Availability</a>
-          <a className="btn ghost" href="#gallery">View Gallery</a>
+          <a className="btn primary" href="#contact">
+            Check Availability
+          </a>
+          <a className="btn ghost" href="#gallery">
+            View Gallery
+          </a>
         </div>
 
         <div className="pillRow" aria-label="Venue highlights">
@@ -96,20 +115,29 @@ function Hero() {
   );
 }
 
-
-
 function Highlights() {
   const items = [
-    { title: "Perfect for photos", text: "Golden-hour fields, ponds, and rustic details everywhere you look." },
-    { title: "Comfortable for guests", text: "Plenty of space to gather, relax, and celebrate together." },
-    { title: "Simple planning", text: "Reach out for pricing, packages, and availability in minutes." },
+    {
+      title: "Rustic countryside charm",
+      text: "Open skies, peaceful land, and a natural setting made for photos.",
+    },
+    {
+      title: "Space for your whole weekend",
+      text: "Celebrate, gather, and unwind together with room to spread out.",
+    },
+    {
+      title: "Simple planning",
+      text: "Reach out for availability, pricing, and details in just a few minutes.",
+    },
   ];
 
   return (
     <section className="section">
       <div className="container">
         <h2 className="sectionTitle">Why couples choose Honeysuckle Hollow</h2>
-        <p className="sectionSubtitle">A beautiful setting with the space and flexibility to make it your own.</p>
+        <p className="sectionSubtitle">
+          A warm, welcoming venue with the flexibility to make your day feel truly yours.
+        </p>
 
         <div className="cardGrid">
           {items.map((it) => (
@@ -128,7 +156,10 @@ function Gallery({ items }) {
   const [filter, setFilter] = useState("All");
   const [active, setActive] = useState(null);
 
-  const filters = useMemo(() => ["All", ...Array.from(new Set(items.map((i) => i.category)))], [items]);
+  const filters = useMemo(
+    () => ["All", ...Array.from(new Set(items.map((i) => i.category)))],
+    [items]
+  );
 
   const visible = useMemo(() => {
     if (filter === "All") return items;
@@ -141,7 +172,9 @@ function Gallery({ items }) {
         <div className="sectionHeadRow">
           <div>
             <h2 className="sectionTitle">Gallery</h2>
-            <p className="sectionSubtitle">Previous weddings, the land, and the venue — tap any photo to enlarge.</p>
+            <p className="sectionSubtitle">
+              Previous weddings, the land, and the venue — tap a photo to enlarge.
+            </p>
           </div>
 
           <div className="filters" role="tablist" aria-label="Gallery filters">
@@ -194,21 +227,33 @@ function Gallery({ items }) {
 
 function Lightbox({ item, onClose, onPrev, onNext }) {
   return (
-    <div className="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" onClick={onClose}>
+    <div
+      className="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
+      onClick={onClose}
+    >
       <div className="lightboxInner" onClick={(e) => e.stopPropagation()}>
         <div className="lightboxTop">
           <div className="lightboxMeta">
             <span className="lightboxTitle">{item.category}</span>
             <span className="lightboxSub">{item.alt}</span>
           </div>
-          <button className="iconBtn" type="button" onClick={onClose} aria-label="Close">✕</button>
+          <button className="iconBtn" type="button" onClick={onClose} aria-label="Close">
+            ✕
+          </button>
         </div>
 
         <img className="lightboxImg" src={item.src} alt={item.alt} />
 
         <div className="lightboxControls">
-          <button className="btn ghost" type="button" onClick={onPrev} aria-label="Previous image">← Prev</button>
-          <button className="btn ghost" type="button" onClick={onNext} aria-label="Next image">Next →</button>
+          <button className="btn ghost" type="button" onClick={onPrev} aria-label="Previous image">
+            ← Prev
+          </button>
+          <button className="btn ghost" type="button" onClick={onNext} aria-label="Next image">
+            Next →
+          </button>
         </div>
       </div>
     </div>
@@ -222,7 +267,7 @@ function Contact({ ownerPhone, ownerEmail }) {
         <div>
           <h2 className="sectionTitle">Contact the owner</h2>
           <p className="sectionSubtitle">
-            Tell us your date, guest count, and what you’re envisioning. We’ll get back to you as soon as possible.
+            Share your date, estimated guest count, and what you’re envisioning.
           </p>
 
           <div className="contactCards">
@@ -256,9 +301,12 @@ function ContactForm() {
         e.preventDefault();
         setStatus({ state: "loading", message: "Sending..." });
 
-        // Demo only:
+        // Demo only — replace with real form handler later
         await new Promise((r) => setTimeout(r, 700));
-        setStatus({ state: "success", message: "Message sent! (Demo) Connect this to email/backend when ready." });
+        setStatus({
+          state: "success",
+          message: "Message sent! (Demo) Hook this to email when ready.",
+        });
         e.currentTarget.reset();
       }}
     >
@@ -295,8 +343,24 @@ function ContactForm() {
       {status.message ? (
         <p className={`formStatus ${status.state}`}>{status.message}</p>
       ) : (
-        <p className="finePrint">This form is front-end only right now. Hook it to email/service when ready.</p>
+        <p className="finePrint">This form is front-end only right now.</p>
       )}
     </form>
+  );
+}
+
+function Footer() {
+  const year = new Date().getFullYear();
+  return (
+    <footer className="footer">
+      <div className="container footerInner">
+        <p>© {year} Honeysuckle Hollow Wedding Venue</p>
+        <div className="footerLinks">
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </footer>
   );
 }
